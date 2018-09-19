@@ -1,0 +1,9 @@
+node_modules
+dist/*
+logs/*
+*.swp
+*.dat
+!.gitkeep
+.idea
+.vscode
+.docker-data
