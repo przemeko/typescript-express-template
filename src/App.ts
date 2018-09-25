@@ -1,16 +1,16 @@
 import http from 'http';
 import expressModule from 'express';
-import { ConfigInterface } from './config/config';
+import { ConfigType } from './config/config';
 import winston from 'winston';
 import path from 'path';
 
 export default class App {
 
-  readonly _config: ConfigInterface;
+  readonly _config: ConfigType;
   private _express: expressModule.Application;
   private _logger: winston.Logger;
 
-  constructor(config: ConfigInterface) {
+  constructor(config: ConfigType) {
     this._express = expressModule();
     this._config = config;
     this._logger = this.createLogger();
@@ -52,7 +52,7 @@ export default class App {
     });
   }
 
-  get config(): ConfigInterface {
+  get config(): ConfigType {
     return this._config;
   }
 

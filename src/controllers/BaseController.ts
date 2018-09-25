@@ -1,5 +1,5 @@
 import App from './../App';
-import { ConfigInterface } from "../config/config";
+import { ConfigType } from "../config/config";
 import winston from 'winston';
 
 export default abstract class BaseController {
@@ -9,7 +9,7 @@ export default abstract class BaseController {
     this.app = app;
   }
 
-  protected get config(): ConfigInterface {
+  protected get config(): ConfigType {
     return this.app.config;
   }
 
