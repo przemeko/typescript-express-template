@@ -1,9 +1,18 @@
-import App from './App';
-import config from './config/config';
-import Router from './Router';
+import http from 'http';
+import apiRouter from './api/api.router';
+import Container from './core/container';
 
-const app = new App(config);
-Router.init(app);
+export default class Server {
 
-app.listen();
+  constructor(readonly container: Container) {
+    this.container.app.use('/api', apiRouter(this.container));
+  }
 
+  public listen(): http.Server {
+    const port = this.container.config.server.port;
+    const hostname = this.container.config.server.hostname;
+    return this.container.app.listen(port, hostname, () => {
+      this.container.logger.info(`[init] Running app on ${hostname}:${port}`);
+    });
+  }
+};

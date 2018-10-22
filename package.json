@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "mocha": "mocha",
     "ts-node": "ts-node"
   },
